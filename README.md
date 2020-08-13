@@ -1,6 +1,6 @@
-# Trend Viewer
+# BluWhale Test App
 
-And interactive trend viewer
+And interactive graph app
 
 ## Installation
 
@@ -10,14 +10,21 @@ Once the installation is complete, run the command `npm run dev` and then naviga
 
 ## Tech Stack
 
-The game uses React inside of NextJS for the view. One advantage of using NextJS is that it ships with API Routes, which you can use as a Server and leverage with `apollo-server-micro` to implement a Full-Stack GraphQL API. For more info about that, see my blog series [here](https://medium.com/swlh/server-side-graphql-with-apollo-nextjs-part-1-setup-2615410c4966).
+- NextJS
+- Styled Components
+- D3
 
-## Typeography
+## Design Decisions
 
-Google Fonts:
+There was a lot to do in this app, and as we discussed, there was likely no way to complete it in the time given, so I made a few contentious decisions.
 
-- Bangers
-- Galada
+Instead of building everything from scratch, I'd try to duplicate another project of mine and just code out the components that needed changing.
+
+Therefore, my main focus was on getting the User Input section working properly, and after that I'd try to funnel through the data as best as possible.
+
+This strategy worked quite well, and the only thing really missing was making the graph type fit the assignment description - instead of a bar or a line chart, we have a scatter plot.
+
+Despite the short amount of time, this enabled me to achieve quite a few of the assignment's requested criteria.
 
 ## Assignment
 
