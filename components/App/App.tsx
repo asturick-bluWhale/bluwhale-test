@@ -1,48 +1,41 @@
-import { useEffect } from "react";
-import { useLazyQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import { useEffect, useReducer } from "react";
 
-import { TrendViewer, TitleBar } from "../";
+import { DIMENSIONS, CHARTTYPE, COLOR, DATA } from "../../utils/constants";
+
+import { Chart, TitleBar, UserInput } from "../";
 import { PageLayout } from "./App.styles";
 
-interface DataPoints {
-  id: string;
-  timestamp: string;
-  value1: string;
-  value2: string;
-  value3: string;
-}
-
-const GET_DATA_POINTS = gql`
-  query DataPoints {
-    points {
-      id
-      timestamp
-      value1
-      value2
-      value3
-    }
-  }
-`;
-
 const App = () => {
-  const [getDataPoints, { called, loading, error, data }] = useLazyQuery<
-    DataPoints
-  >(GET_DATA_POINTS);
+  const initialState = {
+    dimensions: { width: "1000", height: "400" },
+    chartType: "bar",
+    color: "000000",
+    data: "",
+  };
 
-  useEffect(() => {
-    getDataPoints();
-  }, []);
+  const reducer = (state, action) => {
+    if (action.type === DIMENSIONS)
+      return Object.assign({}, state, { dimensions: action.newState });
+
+    if (action.type === CHARTTYPE)
+      return Object.assign({}, state, { chartType: action.newState });
+
+    if (action.type === COLOR)
+      return Object.assign({}, state, { color: action.newState });
+
+    if (action.type === DATA)
+      return Object.assign({}, state, { data: action.newState });
+
+    return state;
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <PageLayout>
       <TitleBar />
-      <TrendViewer
-        data={data}
-        loading={loading}
-        called={called}
-        error={error}
-      />
+      <UserInput userInput={state} setUserInput={dispatch} />
+      <Chart state={state} />
     </PageLayout>
   );
 };

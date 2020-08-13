@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const PageLayout = styled.div`
-  margin-bottom: 50px;
+  padding: 4.7rem 0;
 `;
