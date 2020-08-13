@@ -14,6 +14,18 @@ Once the installation is complete, run the command `npm run dev` and then naviga
 - Styled Components
 - D3
 
+## Design Decisions
+
+There was a lot to do in this app, and as we discussed, there was likely no way to complete it in the time given, so I made a few contentious decisions.
+
+Instead of building everything from scratch, I'd try to duplicate another project of mine and just code out the components that needed changing.
+
+Therefore, my main focus was on getting the User Input section working properly, and after that I'd try to funnel through the data as best as possible.
+
+This strategy worked quite well, and the only thing really missing was making the graph type fit the assignment description - instead of a bar or a line chart, we have a scatter plot.
+
+Despite the short amount of time, this enabled me to achieve quite a few of the assignment's requested criteria.
+
 ## Assignment
 
 Assignment
