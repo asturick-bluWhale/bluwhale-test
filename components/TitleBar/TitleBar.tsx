@@ -2,7 +2,7 @@ import { Bar, Title } from "./TitleBar.styles";
 
 const TitleBar = () => (
   <Bar>
-    <Title>Trend Viewer</Title>
+    <Title>BluWhale Test App</Title>
   </Bar>
 );
 

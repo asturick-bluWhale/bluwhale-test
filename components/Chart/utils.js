@@ -5,5 +5,7 @@ export const createXScale = (signals, chartWidth) =>
     .domain([0, signals.length - 1])
     .range([10, chartWidth - 30]);
 
-export const createYScale = val =>
-  scaleLinear().domain([val.min, val.max]).range([0, 370]);
+export const createYScale = (val, height) =>
+  scaleLinear()
+    .domain([val.min, val.max])
+    .range([20, height - 10]);
